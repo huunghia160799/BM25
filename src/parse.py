@@ -32,7 +32,12 @@ class QueryParser:
 	def parse(self):
 		with open(self.filename) as f:
 			lines = ''.join(f.readlines())
-		self.queries = [x.rstrip().split() for x in lines.split('\n')[:-1]]
+		self.queries = []
+		for x in lines.split('\n')[:-1]:
+			line = x.rstrip().split()
+			query_id = int(line[0])
+			self.queries.append((query_id, line[1:]))
+		# self.queries = [x.rstrip().split() for x in lines.split('\n')[:-1]]
 
 	def get_queries(self):
 		return self.queries
@@ -40,4 +45,4 @@ class QueryParser:
 
 if __name__ == '__main__':
 	qp = QueryParser('text/queries.txt')
-	print qp.get_queries()
+	print(qp.get_queries())
