@@ -29,10 +29,17 @@ class QueryParser:
 		self.filename = filename
 		self.queries = []
 
-	def parse(self):
+	def parse(self, isCustomFormat=False):
 		with open(self.filename) as f:
 			lines = ''.join(f.readlines())
-		self.queries = [x.rstrip().split() for x in lines.split('\n')[:-1]]
+		if isCustomFormat:
+			self.queries = []
+			for x in lines.split('\n')[:-1]:
+				line = x.rstrip().split()
+				query_id = int(line[0])
+				self.queries.append((query_id, [line[1:]]))
+		else:
+			self.queries = [x.rstrip().split() for x in lines.split('\n')[:-1]]
 
 	def get_queries(self):
 		return self.queries
