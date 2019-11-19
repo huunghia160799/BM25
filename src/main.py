@@ -7,7 +7,7 @@ import operator
 import pickle
 
 def main():
-	pickle_in = open('../pickles/question_candidates.pkl', 'rb')
+	pickle_in = open('../pickles/dev_question_candidates.pkl', 'rb')
 	question_candidates = pickle.load(pickle_in)
 
 	# qp = QueryParser(filename='../text/queries.txt')
@@ -34,6 +34,9 @@ def main():
 			index += 1
 			result_dict[qid].append(i[0])
 		# qid += 1
+	print(result_dict)
+	pickle_out = open('dev_candidate_after_bm25', 'wb')
+	pickle.dump(result_dict, pickle_out)
 
 
 if __name__ == '__main__':

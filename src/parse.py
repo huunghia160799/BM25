@@ -37,7 +37,7 @@ class QueryParser:
 			for x in lines.split('\n')[:-1]:
 				line = x.rstrip().split()
 				query_id = int(line[0])
-				self.queries.append((query_id, [line[1:]]))
+				self.queries.append((query_id, line[1:]))
 		else:
 			self.queries = [x.rstrip().split() for x in lines.split('\n')[:-1]]
 
