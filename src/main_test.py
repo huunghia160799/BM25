@@ -10,8 +10,8 @@ import pickle
 def main():
 	# qp = QueryParser(filename='../text/queries.txt')
 	# cp = CorpusParser(filename='../text/corpus.txt')
-	folder_path = '../text-test'
-	query_path = folder_path + 'queries-fiqa.txt'
+	folder_path = '../text-test/'
+	query_path = folder_path + 'queries-fiqa-full.txt'
 	corpus_path = folder_path + 'corpus-fiqa.txt'
 	qp = QueryParser(filename=query_path)
 	cp = CorpusParser(filename=corpus_path)
@@ -52,7 +52,7 @@ def main():
 	print('Contains positive:', contain_positive)
 	print('Acc', contain_positive / total * 100)
 
-	pickle_out = open('candidates_after_bm25.pkl', 'wb')
+	pickle_out = open('test_candidates_after_bm25.pkl', 'wb')
 	pickle.dump(candidate_after_bm25, pickle_out)
 
 
