@@ -21,7 +21,7 @@ class QueryProcessor:
 		query_result = dict()
 		for term in query:
 			if term in self.index:
-				print ('Term:', term)
+				# print ('Term:', term)
 				doc_dict = self.index[term] # retrieve index entry
 				# i = 0
 				for docid, freq in doc_dict.items(): #for each document and its word frequency
@@ -34,5 +34,5 @@ class QueryProcessor:
 						query_result[docid] += score
 					else:
 						query_result[docid] = score
-				print('=======\n')
+				# print('=======\n')
 		return query_result

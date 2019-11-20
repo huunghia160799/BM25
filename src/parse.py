@@ -13,7 +13,7 @@ class CorpusParser:
 	def parse(self):
 		with open(self.filename) as f:
 			s = ''.join(f.readlines())
-		blobs = s.split('#')[1:]
+		blobs = s.split('\n#')[1:]
 		for x in blobs:
 			text = x.split()
 			docid = text.pop(0)
